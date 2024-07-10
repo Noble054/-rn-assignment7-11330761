@@ -10,6 +10,10 @@ const CartScreen = () => {
     removeFromCart(item);
   };
 
+  const getTotal = () => {
+    return cart.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+  };
+
   if (!cart.length) {
     return (
       <View style={styles.container}>
@@ -19,31 +23,55 @@ const CartScreen = () => {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      {cart.map((item, index) => (
-        <View key={index} style={styles.cartItem}>
-          <Image source={{ uri: item.image }} style={styles.image} />
-          <View style={styles.details}>
-            <Text style={styles.name}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
-            <Text style={styles.price}>${item.price}</Text>
+    <View style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image source={require('../assets/images/Logo.png')} style={styles.logo} />
+      </View>
+      <ScrollView style={styles.cartList}>
+        {cart.map((item, index) => (
+          <View key={index} style={styles.cartItem}>
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <View style={styles.details}>
+              <Text style={styles.name}>{item.title}</Text>
+              <Text style={styles.price}>${item.price}</Text>
+            </View>
+            <TouchableOpacity style={styles.removeButton} onPress={() => handleRemoveFromCart(item)}>
+              <Ionicons name="remove" size={24} color="white" />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.removeButton} onPress={() => handleRemoveFromCart(item)}>
-            <Ionicons name="remove" size={24} color="white" />
-          </TouchableOpacity>
+        ))}
+      </ScrollView>
+      <View style={styles.footer}>
+        <View style={styles.totalContainer}>
+          <Text style={styles.totalText}>Est. Total:</Text>
+          <Text style={styles.totalAmount}>${getTotal()}</Text>
         </View>
-      ))}
-    </ScrollView>
+        <TouchableOpacity style={styles.checkoutButton}>
+          <Text style={styles.checkoutText}>Checkout</Text>
+          <Ionicons name="cart" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
-
-export default CartScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 20,
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  logo: {
+    width: 150,
+    height: 50,
+    resizeMode: 'contain',
+  },
+  cartList: {
+    flex: 1,
+    paddingHorizontal: 20,
   },
   cartItem: {
     flexDirection: 'row',
@@ -65,10 +93,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  description: {
-    fontSize: 14,
-    color: '#555',
-  },
   price: {
     fontSize: 16,
     color: '#000',
@@ -78,4 +102,37 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 5,
   },
+  footer: {
+    padding: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#ddd',
+  },
+  totalContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  totalText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  totalAmount: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  checkoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000',
+    padding: 15,
+    borderRadius: 10,
+  },
+  checkoutText: {
+    color: '#fff',
+    fontSize: 18,
+    marginRight: 10,
+  },
 });
+
+export default CartScreen;
