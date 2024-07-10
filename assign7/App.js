@@ -27,7 +27,7 @@ const HomeStack = ({ navigation }) => (
       options={{
         headerLeft: () => (
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-            <Ionicons name="menu" size={28} style={{ marginLeft: 10 }} />
+            <Ionicons name="menu" size={34} style={{ marginLeft: 10 }} />
           </TouchableOpacity>
         ),
         headerTitle: () => (
@@ -48,7 +48,7 @@ const HomeStack = ({ navigation }) => (
       }}
     />
     <Stack.Screen name="Product Details" component={ProductDetailsScreen} />
-    <Stack.Screen name="Checkout" component={CheckoutScreen} />
+    {/* <Stack.Screen name="Checkout" component={CheckoutScreen} /> */}
     <Stack.Screen name="Cart" component={CartScreen} />
   </Stack.Navigator>
 );
