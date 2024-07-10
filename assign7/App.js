@@ -10,7 +10,12 @@ import CheckoutScreen from './screens/CheckoutScreen';
 import { CartProvider } from './contexts/CartContext';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity, Image, View, StyleSheet } from 'react-native';
-
+import StoreScreen from './screens/StoreScreen';
+import LocationScreen from './screens/LocationScreen';
+import BlogScreen from './screens/BlogScreen';
+import JewelryScreen from './screens/JewelryScreen';
+import ElectronicsScreen from './screens/ElectronicsScreen';
+import ClothesScreen from './screens/ClothesScreen';
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -53,7 +58,13 @@ const App = () => {
     <CartProvider>
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="HomeStack">
-          <Drawer.Screen name="HomeStack" component={HomeStack} options={{ headerShown: false }} />
+          <Drawer.Screen name="Albert Tetteh" component={HomeStack} options={{ headerShown: false }} />
+          <Drawer.Screen name="Store" component={StoreScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Blog" component={BlogScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Location" component={LocationScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Jewelry" component={JewelryScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Electronics" component={ElectronicsScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Clothing" component={ClothesScreen} options={{ headerShown: false }} />
         </Drawer.Navigator>
       </NavigationContainer>
     </CartProvider>
