@@ -99,14 +99,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any inquiries, please contact us at [albertnoble054@gmail.com](mailto:albertnoble054@gmail.com).
 
-![Home](assign7\assets\Home.jpg)
-![Cart](assign7\assets\cart.jpg)
-![ProductDetails](assign7\assets\Details.jpg)
-![ProductDetails](assign7\assets\Details1.jpg)
-![Drawer](assign7\assets\drawer.jpg)
-![Electronics](assign7\assets\electonics.jpg)
-![Jewelry](assign7\assets\jewelry.jpg)
-![location](assign7\assets\location.jpg)
+![Home](./assign7/assets/Home.jpg)
+![Cart](./assign7/assets/cart.jpg)
+![ProductDetails](./assign7/assets/Details.jpg)
+![ProductDetails](./assign7/assets/Details1.jpg)
+![Drawer](./assign7/assets/drawer.jpg)
+![Electronics](./assign7/assets/electonics.jpg)
+![Jewelry](./assign7/assets/jewelry.jpg)
+![location](assign7/assets/location.jpg)
 
 
 
